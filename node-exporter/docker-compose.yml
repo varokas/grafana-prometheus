@@ -1,0 +1,9 @@
+version: '3'
+services:
+  node-exporter:
+    image: prom/node-exporter:v1.0.1
+    volumes:
+      - /sys:/sys:ro
+      - /proc:/proc:ro
+    ports:
+      - '9100:9100'

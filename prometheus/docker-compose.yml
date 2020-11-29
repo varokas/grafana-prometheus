@@ -1,0 +1,23 @@
+version: '3'
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+services:
+  prom:
+    image: prom/prometheus:v2.22.2
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+     - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - '9090:9090'
+    restart: always
+  grafana:
+    image: grafana/grafana:7.3.3
+    volumes: 
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=passwd
+    ports:
+      - "3000:3000"
