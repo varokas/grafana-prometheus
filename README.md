@@ -1,6 +1,8 @@
 # Prometheus
 Basic Node Monitoring with Grafana, Prometheus, and node-exporter.
 
+![screenshot.png](screenshot.png)
+
 There are 3 parts
 1. Node-Exporter :: Monitor current server status. Run this at each server
 2. Promethesus :: Collect data from all node exporters. Run this at some centralized server.
